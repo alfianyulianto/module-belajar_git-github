@@ -1,0 +1,55 @@
+GIt merupakan salah satu dari "VERSION CONTROL SYSTEM"
+
+Version Control System, disebut juga "revison control system" atau "source code management" adalah sistem yang mengelola perubahan dari sebuah document, program komputer, website dan kumpulan informasi lain
+
+Manfaat Version Controll System :
+- sebuah sistem yg menyimpan 'rekaman/snapshot' perubahan pada source code
+- dengan vcs memungkinkan kita bekerja berkolaborasi dengan lebih baik
+- dengan vcs memungkinkan kita mengetahui siapa yang melakukan perubahan dan kepan sebuah perubahan terjadi
+- dengan vcs memungkinkan kita untuk kembali ke keadaan awal sebelum perubahan(checkout)
+
+Contoh software Version Control System
+1. GIT
+2. subversion
+3. mercurial
+4. CVS(Cuncurrent Version System)
+
+
+- GIT : sebuah Version Control System untuk mengelola perubahan file di dalam folder
+- Folder di dalam GIT disebut "REPOSITORY / REPO"
+- GIT akan menyimpan riwayat/history perubahan file menggunakan serangkaian "COMMIT"
+
+BRACH : percabangan
+- misal ada 2 orang, orang pertama mengerjakan fitur A yang ada di branchA dan orang kedua menegrjakan fitur B yang ada di branchB
+
+MERGE : menggabungkan 2 buah branch yang berbeda
+- misal hasil pengerjaan yg ada di branchA dan branchB dilakukan penggabungan
+
+PUSH : proses pengiriman file / folder dari local komputer ke dalam sebuah layanan cloud(GITHUB / GITLAB)
+PULL : proses pengambilan file / folder dari layanan cloud(GITHUB / GITLAB) ke dalam local komputer
+Yang diambil dari push dan pull yitu commit
+
+Syarat untuk melakukan push dan pull yaitu harus menggunakan "REMOTE"
+REMOTE : untuk mengubungkan antara cloud dan local komputer dengan cara "CLONE"
+
+Istilah-istilah pada GIT
+- repo  : folder project
+- commit : rekaman / snapshot dari repo (ke cloud)
+- hash : penanda unik pada sebuah commit
+- checkout : berpindah ke sebuah commit / branch
+- branch : cabang dari sebuah commit
+- merge : menggabungkan branch
+- remote : sumber yg memiliki repo
+- clone : megambil repo dari remote( agar repo yg di lokal terhubung dengan repo di remot)
+- push : mengirimkan commit ke repo
+- pull : mengambil commit dari repo
+
+- Pull Request : meminta pemilik repo untuk "mengambil" perubahan yang telah dilakukan
+- Merge Conflict : baris yang sama diubah oleh 2 branch yang berbeda
+
+GITHUB DAN GITLAB : merupakan layanan cloud untuk menyimpan & mengelola project / repo git
+
+Contoh Cloud Computing:
+1. GITHUB
+2. GITLAB
+3. Bitbucket

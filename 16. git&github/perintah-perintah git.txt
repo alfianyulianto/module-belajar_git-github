@@ -1,0 +1,78 @@
+Bikin folder 
+- mkdir nama_folder
+
+Masuk ke folder
+- cd nama_folder
+
+Bikin file
+- vi nama_file
+- vi nama_folder/nama_file
+
+Cara keluar dari code editor VIM
+- esc :q! enter -> keluar dari VIM
+- esc :wq enter -> write quit
+
+Masuk ke dalam project:
+- git init
+- git remote add origin https://gitlab.com/setiawan.infor/webinar.git
+- git pull origin master -> buat narik file ke lokal
+
+
+Push folder ke git:
+- git add nama_folder / git init . (menambah semua file atau folder kedalam working directory)
+- git commit -m "push folder" nama_folder
+- git push origin nama_branch(master/alfianyulianto)
+
+"Dalam membuat gitlab kita memiliki branch default yaitu master"
+
+Buat branch
+- git checkout -b nama_branch
+- git commit -m "buat branch"
+- git push origin nama_branch
+- git chekout nama_branch 
+
+Cara mengetahui berhasil masuk ke branch
+- git branch
+"kutip bintang sebagai penda kita masuk di branch mana"
+
+Cara kembali ke branch master
+- git checkout master
+
+Cara kembali ke branch alfianyulianto
+- git checkout alfianyulianto
+
+- git fetch origin nama_branch (digunakan untuk mengambil dari semua branch/list branch)
+
+
+Error karena ssl
+- set GIT_SSL_NO_VERIFY=true
+
+
+- git config --global http.sslverify "false"
+
+Untuk menyatuin 
+- git marge nama_branch nama_branch 
+
+
+Untuk melihat commit terakhir
+- git last
+
+Untuk melihat direktory saat init
+- pwd (print working diretory)
+
+Untuk melihat isi dari directory
+- ls
+
+Untuk mengeluarkan dari staging area atau git add
+- git -rm --cached <file>
+
+Untuk menghapus github repository di komputer (lokal) atau di folder, 
+silakan hapus folder .git misalnya dengan perintah
+rm -rf namafolderepo/.git
+
+
+cara mengatasi git conflic
+https://subcoder77.wordpress.com/2013/04/16/mengatasi-git-conflict/
+
+
+https://github.com/datascienceid/panduan-github

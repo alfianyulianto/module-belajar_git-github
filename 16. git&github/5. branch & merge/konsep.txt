@@ -1,0 +1,126 @@
+Branch : membuat sebah snapshot tanpa menganggu jalur utama (Main/Master Branch)
+Jika kita memiliki satu commit maka didalamnya akan terdapat :
+1. commit Hash
+2. commit message
+3. timestamp(waktu commit dibuat)
+4. orang yang melakukan perubahan
+5. commit terhubung dengan "branch"
+
+- Untuk mengetahui branch yang aktif git memiliki yg namanya "HEAD" sebagai pointer yang mengarah ke branch yg aktif
+|----------------|
+| mahasiswa.html |      commit hash : 23bc567   "master" HEAD
+|----------------|
+
+- Ketika kita melakukan sebuah commit yg baru otomatis "branch" dan "pointer HEAD" akan mengarah ke commit yg baru
+|----------------|
+| mahasiswa.html |      commit hash : 8g26ya9   "master" HEAD
+|----------------|
+        ^
+|----------------|
+| mahasiswa.html |      commit hash : 23bc567
+|----------------|
+
+- Jika di commit yg baru kita menambahan sebuah branch baru maka commit yg bersangkutan akan memiliki branch yg baru
+|----------------|                              "dosen"
+| mahasiswa.html |      commit hash : 8g26ya9   "master" HEAD
+|----------------|                              "staff"
+        ^
+|----------------|
+| mahasiswa.html |      commit hash : 23bc567
+|----------------|
+
+- Ketika kita ingin keluar dari sebuah branch maka "pointer HEAD" akan berpindah ke branch yang kita checkout
+|----------------|                              "dosen" HEAD
+| mahasiswa.html |      commit hash : 8g26ya9   "master" 
+|----------------|                              "staff"
+        ^
+|----------------|
+| mahasiswa.html |      commit hash : 23bc567
+|----------------|
+
+- Jika kita menambah sebuah file pada branch yang aktif dan melakukan commit untuk file tersebut maka "branch" serta "pinter HEAD" akan mengarah ke commit yang baru
+|----------------|                           
+| mahasiswa.html |    commit hash : 897tq1a
+|   dosen.html   |    "dosen" HEAD
+|----------------|
+             ^
+             |        |----------------|
+             ---------| mahasiswa.html |      commit hash : 8g26ya9   "master" 
+                      |----------------|                              "staff"
+                              ^
+                      |----------------|
+                      | mahasiswa.html |      commit hash : 23bc567
+                      |----------------|
+
+|----------------|                              |----------------|
+| mahasiswa.html |    commit hash : 897tq1a     | mahasiswa.html |    commit hash : 22o98hi
+|   dosen.html   |    "dosen"                   |   staff.html   |    "staff" HEAD
+|----------------|                              |----------------|
+             ^                                        ^
+             |        |----------------|---------------
+             ---------| mahasiswa.html |      commit hash : 8g26ya9   "master" 
+                      |----------------|                              "staff"
+                              ^
+                      |----------------|
+                      | mahasiswa.html |      commit hash : 23bc567
+                      |----------------|
+
+
+Merge : untuk menggabungkan 2 buah branch
+Ada 2 jenis MERGE pada GIT
+- Fast Forward : ketika sebuah branch berada di jalur langsung /direct path(cabang yg langsung terhubung ke master)
+- Three-way Merge(atau membuat merge sekalian membuat commit) : ketika sebuah branch berada di jalur yang berbeda(cabang yang tidak terhubung ke master)
+
+
+
+- Ketika kita ingin menggabungkan branch master ke dalam branch dosen yang kita lakukan ialah Fast Forward(karena berada di jalur yang sama)
+|----------------|                              |----------------|
+| mahasiswa.html |    commit hash : 897tq1a     | mahasiswa.html |    commit hash : 22o98hi
+|   dosen.html   |    "dosen"                   |   staff.html   |    "staff"
+|----------------|    "master" HEAD             |----------------|
+             ^                                        ^
+             |        |----------------|---------------
+             ---------| mahasiswa.html |      commit hash : 8g26ya9
+                      |----------------|                           
+                              ^
+                      |----------------|
+                      | mahasiswa.html |      commit hash : 23bc567
+                      |----------------|
+- Karena branch master dan branch dosen sudah dilakukan merge dan di branch dosen sudah tidak dibutuhkan lagi maka kita bisa menghapusnya dengan perintah "git branch -d dosen"
+|----------------|                              |----------------|
+| mahasiswa.html |    commit hash : 897tq1a     | mahasiswa.html |    commit hash : 22o98hi
+|   dosen.html   |    "master" HEAD             |   staff.html   |    "staff"
+|----------------|                              |----------------|
+             ^                                        ^
+             |        |----------------|---------------
+             ---------| mahasiswa.html |      commit hash : 8g26ya9
+                      |----------------|                           
+                              ^
+                      |----------------|
+                      | mahasiswa.html |      commit hash : 23bc567
+                      |----------------|
+
+
+- Kemudian kita ingin menggabungkan branch master dengan branch staff maka yang terjadi ialah Three-way Merge(karena berbeda jalur antara branch master dengan branch staff)
+                      |----------------|    commit hash : 7hg7y77   "master" HEAD
+                      | mahasiswa.html |                            "staff"
+                      |   dosen.html   |
+        |-------------|   staff.html   |------------------|
+        |             |----------------|                  |
+        |                                                 |
+        |                                                 |
+        |                                                 |
+        |                                                 |
+        |                                                 |
+|----------------|                              |----------------|
+| mahasiswa.html |    commit hash : 897tq1a     | mahasiswa.html |    commit hash : 22o98hi
+|   dosen.html   |    "master" HEAD             |   staff.html   |    "staff"
+|----------------|                              |----------------|
+             ^                                        ^
+             |        |----------------|---------------
+             ---------| mahasiswa.html |      commit hash : 8g26ya9
+                      |----------------|                           
+                              ^
+                      |----------------|
+                      | mahasiswa.html |      commit hash : 23bc567
+                      |----------------|

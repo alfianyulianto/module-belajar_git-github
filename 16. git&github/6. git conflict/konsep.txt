@@ -1,0 +1,4 @@
+Conflict : terjadi ketika kita ingin mengabungkan sebuah branch ke branch yang lain(merge) tetapi kedua branch tersebut mengalami perubahan
+- Karane keuda branch mengalami perubahan masing-masing maka kita tidak bisa melakukan merge
+- Untuk mengatasi hal tersebut kita harus resolve/diselesaikan secara manual. Kita harus memilih baris/srcipt mana yang mau kita ambil
+- Ketika kita melakuakn merge pada sebuah file yang Conflict maka kita sedang melakukan "Three-way Merge"

@@ -1,0 +1,55 @@
+Remote : sebuah duplikat dari lokal komputer kita yang ada di layanan cloud(github, ditlab, dll)
+
+- satu repo locak dapat terhubung kebeberapa remote sekaligus
+- kita bisa menghubungkan repo lokal dengan fork yang ada di github
+- kita bisa menghubungkan repo lokal ke server kantor
+- kita bisa menghubungkan repo lokal dengan laptop lain
+
+**KASUS PERTAMA JIKA ADA REPO DIREMOTE DAN KITA INGINI MENGAMBIL REPO TEREBUT UNTUK DIJADIKAN REPO DI LOAKAL KOMPUTER**
+- Untuk mengambil repo di layanan cloud untuk dijadikan repo di lokal kita gunakan peritahn 
+  git clone <link_remote>
+
+- Untuk mengetahui remote apa yang aktif di dalam git lokal kita gunakan perintah
+  git remote
+  -> origin (default nama remote)
+
+- Untuk mengetahuin detail remote
+  git remote -versi
+  -> origin https://github.com/alfianyulianto/alfian-git-tes2.git   (fetch)
+  -> origin https://github.com/alfianyulianto/alfian-git-tes2.git   (push)
+
+- Untuk melihat file yang berubaj, dimodifikasi dan dihapus kita gunakan perintah 
+  git status
+  -> On branch master
+    Your branch is up to date with 'origin/master'
+
+- Untuk melihat visualiasi dari sebuah commit kita gunakan perintah
+  git log --all --decorate --oneline --graph
+  -> 87hh167  (HEAD->master, origin/master, origin/HEAD) initial commit (kerena semua branch berada pada satu pointer maka artinya sudah up to date)
+  ^ origin/master dan origin/HEAD merupakan branch yang ada di remote
+
+- Untuk mengirimkan perubahan yang ada di lokal komputer ke cloud maka kita gunakan perintah 
+  git push 
+
+**KASUS KEDUA JIKA KITA MEMILIKI REPODO LOKAL KOMPUTER DAN KITA INGIN MENJADIKANNYA REPO DI REMOTE**
+- Buat repo di remote(layanan cloud)
+
+- Kemudian di bagian initialize jangan di checklist
+
+- Untuke menambahkan sebuah remote baru di lokal agar terhubung ke github kita gunakan perintah
+  git remote add <name_remote> <link_remote>
+
+- Untuk memasukan kode program di lokal ke cloud kita gunakan perintah
+  git push -u <name_remote> <name_branch> -> -u digunakan untuk membuat upstream, kedepannya jika kita menuliskan git push aja maka secara otomatis akan dikirim ke nama_remote dan nama_branch tujuan
+
+**KASUS KE TIGA DI CLOUD SUDAH ADA REPO DAN DI LOKAL JUGA SUDAH ADA REPO**
+- Ini akan membuat sebuah conflict  
+
+- Ketika kita mengirimkan perubahan yang terjadi di lokal ke cloud dengan perintah "git push" maka akan mengeluarkan pesan [rejected]
+
+- Untuk menganganinya kita bisa gunakan perintah "git pull" untuk mengambil perubahan yang terjadi di repo remote
+
+- "git fecth" untuk mengecek commite yang ada di repo remote
+
+- Jika ada conflict artinya repo remote dan repo lokal membuat cabang yang berbeda. Untuk mengatasainya kita harus lakukan merge dengan perintah "git pull" dan secara otomatis akan membuka editor default. Setelah conflictnya resolve maka kita "git add", "git commit" dan "git push"
+
