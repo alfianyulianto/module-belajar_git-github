@@ -1,0 +1,19 @@
+Multiple Remote : merupakan konsep yang mengubungkan loakl komputer ke beberapa remote sekaligus
+
+- Agar kita uptudate dengan repo yang kita fork kita harus menambahkan remote baru yang ditujukan ke remote fork
+  git remote add <name_remote> <link_rmeote>
+
+- Untuk melihat posisi/history commit dari repo sumber kita gunakan perintah
+  git fetch <name_remote>
+
+- Jika repo sumber melakukan perubahan kemudian repo lokal dan repo cloud kita ingin uptudate kita gunakan perintah
+  git fetch 
+
+- Mungkin saja repo sumber mengalami perubahan untuk mengetahui perubaan itu kita gunakan perintah
+  git fetch <name_remote>
+- Atau jika kita ingin mengetahui perubahan yang ada kita bisa gunakan perintah 
+  git pull <name_remote> <name_branch> -> dg perintah ini repo local kita langsung uptudate dengan remote
+  ^ kemudian karena direpo sumber mengalami perubahan maka kita harus mengabungkan antara perubahan yang ada di repo sumber dengan repo lokal
+  git merge <name_remote>/<name_branch>
+  ^ kemudian di repo cloud kita juga harus menyamakan dengan repo lokal dan repo sumber(remote sumber)
+  git push -u <name_remote> <name_branch>

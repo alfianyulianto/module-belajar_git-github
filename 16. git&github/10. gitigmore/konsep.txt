@@ -1,0 +1,10 @@
+.gitignore : sebuah file yang yang memungkinkan kita saat melakukan 'git add dan git commit' membuat sebuah file tidak ikut terbawa kedalam proses commit
+
+Pada .gitignore kita bisa mendaftarkan file
+- <name_file>.<ekstensi> -> menyimpan file
+- <name_folder>/         -> menyimpan folder
+- *.<ekstensi>           -> menyimpan pola(ekstensi file)
+
+Kita bisa mengunjungi situs untuk mengecek file atau folder apa saja yang perlu kita masukan ke gitignore
+- github.com/github/gitignore
+- gitignore.io

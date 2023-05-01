@@ -1,0 +1,3 @@
+- FORK : menduplikat repo dari orang lain (beserta historynya), sehingga repo yg kita duplikat dapat kita ganti isinya tanpa mengganggu repo aslinya
+- Dapat berkontribusi pada repo yg lain(maksudnya ketika kita melakukan FORK dan kita ubah isinya maka kita bisa usulkan repo hasil editan kita kepada peilik aslinya sehingga pemilik aslinya dapat menerapkan perubahan yg kita lakukan)
+- Ilustrasinya semisal orang A memiliki repo yg mungkin sesuai dengan project yang sedang kita kerjakan dan kita ingin mengcopy repo tersebut. Nah github memungkinkan kita untuk FORKING repo milik orang lain beserta historynya serta nama pembuat repo

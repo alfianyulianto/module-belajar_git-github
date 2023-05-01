@@ -1,0 +1,4 @@
+BRANCH
+- Membuat rekaman/snapshot (dari commit) tanpa mengganggu jalur utama (Main/Master Branch)
+- Digunakan untuk membuat fitur yg experimental(fiturnya bisa diterapkan atau tidak)
+- Digunakan untuk 2 orang yang mengerjakan repo yang sama

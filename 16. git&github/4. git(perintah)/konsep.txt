@@ -1,0 +1,121 @@
+GIT Command (local) / Perintah-perintah GIT
+- git init : untuk menginisialisasi repo git di komputer 
+- git add <file(s)> : untuk menambah file ke dalam Staging Area
+- git add . : untuk menambah semua file baik yang berubah, hilang dan ditambah ke dalamn Stagging Area
+- git rm --cached <file> : untuk mengeluarkan dari staging area
+- git reset HEAD <file> : untuk mengeluarkan file dari Staging Area
+- git status : untuk mengetahui status repo(ada file baru tidak, ada file berubah tidak, ada file yang hilang tidak)
+
+- git commit : untuk melakukan commit(jika kita mengetikan git commit lalu enter maka akan masuk ke code editor default)
+- git commit -m <message> : untuk memberikan sebuah pesan commit pada file
+- git log : untuk melihat semua commit yang sudah dilakukan
+- git log -3 : untuk mengetahui 3 commit terakhir
+- git log -- <file> : untuk mengetahui commit pada sebuah file(mengetahui secara sepesifik pada commit sebuah file tertentu)
+- git log -p : untuk menampilkan  diff dari setiap commit.
+- git log -p -2 :  untuk menampilkan  diff dari 2 commit terakhir.
+- git log --stat : untuk melihat statistik dari setiap commit
+- git log --pretty=option : untuk mengubah output dari sebuah commit
+  ^ Option : oneline, short, full, fuller
+- git log --pretty=format:"%h - %an, %ar : %s"  // output : ca82a6d - Scott Chacon, 11 months ago : changed the version number
+  ^ Option : 
+  %H    Hash dari commit
+  %h    Hash dari commit dalam versi pendek
+  %T    Hash dari pohon
+  %t    Hash dari pohon dalam versi pendek
+  %P    Hash dari parent
+  %p    Hash dari parent dalam versi pendek
+  %an    Nama pembuat
+  %ae    Email pembuat
+  %ad    Tanggal pembuat (format juga memperhitungkan opsi -date=)
+  %ar    Tanggal pembuat, relatif
+  %cn    Name pelaku commit
+  %ce    Email pelaku commit
+  %cd    Tanggal pelaku commit
+  %cr    Tanggal pelaku commit, relatif
+  %s    Judul
+
+- git config : untuk memasukan kofigurasi kedalam git
+- git config --list : untuk mengecek konfigurasi pada git yang kita miliki
+- git config --global <option> : untuk melakukan konfigurasi secara global
+- git config --local <option> : untuk melakuakn konfigurasi secara local unutk repo tertentu
+- git config --global alias.ko commit : untuk membuat shortcut commit. Cara menggunakan `git ko -m "message_commit"
+- git config --global alias.graph "log --all --decorate --oneline --graph : untuk membuat shortcut menampilkan log dalam bentuk graph. Cara menggunakan `git graph"
+
+- git help : untuk mengetahui cara pakai perintah dalam git
+- vim : untuk masuk ke kode editor vim (kode editor vim dapat digunakan ketika kita menuliskan commit yang panjang)
+- esc :q! -> untuk keluar dari kode editor vim
+- esc :wq! -> untuk keluar sekaligus menuliskan bari kode di editor vim
+
+- vi <file> : untuk menambah file baru
+- touch <file> : untuk menambah file baru
+- cat <file> : untuk melihat isi dari sebuah file (concate)
+- mkdir <folder> : untuk menambah folder baru
+- rm <file> : untuk menghapus file
+
+- git branch : untuk melihat semua branch
+- git branch --show-current : untuk melihat branch saat ini
+- git branch <name_branch> : untuk membuat branch baru
+- git checkout <name_branch> : untuk berpindah kesebuah branch tertentu
+- git switch <name_branch> : untuk berpindah kesbuah branch tertentu
+- git checkout -b <name_branch> : unutk membuat branch baru sekalian berpindah ke branch baru tersebut
+- git checkout 7digitHash <file> : untuk mengembalikan sebuah commit dari sebuah file tertentu pada keadaan awal(keadan yg kita mau) 
+- git checkout 7digitHash : untuk kembali ke sebuah commit. Jika kita melakukan ini maka kita akan masuke ke keadaan 'detache HEAD' / pointer HEAD lepas dari branch
+- git log --all --decorate --oneline --graph : untuk menampilkan history dari branch
+
+- alias <name>="<perintah_git>" : untuk membuat alias dari peritahn git tapi hanya berlaku dalam satu sesi/artinya ketika kita close git bashnya maka alias yang kita buat akan hilang
+
+- git merge <name_branch> : untuk menggabungkan branch tertentu ke dalam cabang utama(master)
+- git --merged : untuk mengetahui branch mana yang sudah di lakukan merge
+- git rebase <name_branch> : untuk membuat Fast Forward Merge
+
+- git branch -d <nalme_branch> : untuk menghapus branch yang sudah di merge
+- git branch -D <name_branch> : untuk menghapus braNch yang belum dilakukan merge
+- Jika dalam melakukan merge ada confilct maka tangani dulu confictnya sampai resolve
+- Selanjutnya lakukan git add dan git commit untuk file yg sudah resolve
+
+- git clone <remote_link> : untuk menghubungkan git remote(dari layanan cloud) ke local komputer tanpa harus membuat file dan melakukan inisialiasi di local. Jadi repo yang ada di layanan cloud akan ada di local komputer
+- git remote : untuk mengetahui nama remote yang aktif(default "origin")
+- git remote -v : untuk mengetahui data detail dari remote yang aktif
+- git remote add <name_remote(defalut 'origin')> <remote_link> : untuk menghubungkan repo yang ada di local komputer ke repo yang ada di remote(layanan cloud)
+- git remote rm <name_remote> : untuk menghapus remote
+- git push : untuk mengirimkan perubahan yang ada di local ke remote(layanan cloud)
+- git push -u <name_remote> <name_branch> : digunakan untuk upstream(artinya kedepannya kita hanya perlu melakukan "git push" aja jika kita ingin mengirimkan file)
+- git push <name_remote> --delete <name_branch> : digunkan untuk menghapus branch yang ada di remote
+- git fetch : untuk mengecek commit yang ada di remote(layanan cloud). Ini dilakukan jika saat kita push dan push kita di rejected
+- git fetch <name_remote> : untuk mengecek commit yang ada di remote tertentu
+- git pull : untuk mengambil file yang ada di remote(layanan cloud)
+- git pull <name_remote> <name_branch> --allow-unrelated-histories : jika fatal: refusing to merge unrelated histories
+
+- git clean -f : untuk membatalkan penambahan file, dimana file masih di working directory
+- git store --stage <name_file> : untuk mengeluarkan file yang masuk ke staging area, sehingga file akan masuk ke working directory
+- git store <name_file> : untuk membatalkan perubahan atau penghapusan file, syaratnya file harus berada di working directory
+
+** Menghapus commit
+- git revert 7digitHash : untuk merubah ke keadaan awal sebelum dilakukan commit. Ini akan membuat commit baru
+- git reset <mode> 7digitHash : untuk menghapus commit
+	*ada 3 mode:
+		# --soft : perubahan masih di staging area
+		# --mixed : perubahan masih di working directory
+		# --hard : perubahan otomatis ilang, artinya tidak ada di staging area maupun di working directory
+		# ingat kita masih bisa kembali ke commit sebelum di reset asalkan kita tahu hash_key nya dan kita belum pernah melakukan commit
+
+** Koneksi ke ssh
+- ssh-keygen : untuk membuat key ssh. Dengan perintah ini akan membuat file id_rsa dan id_rsa.pub di folder /c/Users/SAMSUNG/.ssh/
+- Gunakan id_rsa.pub untuk dimasukan ke dalam github
+- https://github.com/settings/keys : link untu setting ssh key di github
+- ssh -T git@github.com : untuk mengecek apakah key sudah terkoneksi. Jika terdapat pesan 'Hi alfianyulianto! You've successfully authenticated, but GitHub does not provide shell access' berarti ssh key sudah terkoneksi
+
+
+
+INFORMASI LEBIH ANJUT MENGENAI COMMAND GIT : https://yunwuxin1.gitbooks.io/git/content/id/
+
+3 AREA PADA REPO GIT
+1. Wroking tree : folder tempat kita bekerja di local
+2. Staging area : tempat untuk memberitahu git bahwa kita sudah melakukan perubahan (ketika mengetikan git add)
+3. History : di bagian staging area jika kita melakuakn commit maka akan masuk ke History 
+- Staging area dan Hostory akan tersimpan kedalam sebuah folder ".git"
+
+----FUNFACT----
+- Jika setatus filenya sudah "modified" maka kita bisa langsung melakuakn "git commit" dengan perintah
+    ^ git commit -a -m : untuk menambahkan file yg sudah modified ke dalam History tanpamelakuakn git add
+    ^ git commit -am : untuk menambahkan file yg sudah modified ke dalam History tanpamelakuakn git add
